@@ -4,7 +4,7 @@ import requests
 # Get html file and make a soup
 response = requests.get("https://news.ycombinator.com/news")
 response.raise_for_status()
-soup = BeautifulSoup(response.text)
+soup = BeautifulSoup(response.text, "html.parser")
 
 # Get hrefs
 titles = soup.select(selector=".athing .title .titleline a")
